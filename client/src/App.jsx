@@ -97,12 +97,11 @@ function App() {
         console.log("Ethereum object doesn't exist!");
       }
     } catch (error) {
-      console.log("Error submitting new Tweet", error);
+      console.log("Error submitting new Task", error);
     }
 
     setInput("");
   };
-
   const deleteTask = (key) => async () => {
     console.log(key);
 
@@ -119,7 +118,7 @@ function App() {
           signer
         );
 
-        let deleteTaskTx = await TaskContract.deleteTask(key, true);
+        let deleteTasks = await TaskContract.deleteTask(key, true);
         let allTasks = await TaskContract.getMyTasks();
         setTasks(allTasks);
       } else {
